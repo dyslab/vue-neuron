@@ -1,12 +1,12 @@
 # vue-neuron: Static site powered by VUE / Vite + Netlify
 
-## Published to: [Netlify](https://app.netlify.com)
+## Published to: [https://vue-neuron.netlify.app](https://vue-neuron.netlify.app)
 
 ## Vite Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Project Setup, Development & Deployment
 
 ```sh
 npm install
@@ -27,3 +27,5 @@ npm run preview
 ```
 
 ### Deploy to Netlify
+
+CI deployment with Github repository
