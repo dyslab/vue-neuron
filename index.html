@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <!-- Place below two lines in HTML file between the <head> tags to enable Google font -->
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Serif+Toto&display=swap' rel='stylesheet' type='text/css'>
+    <title>Neuron Media</title>
+  </head>
+  <body>
+    <div id="pool"></div>
+    <script type="module" src="/src/pool.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+  </body>
+  <script>
+    /*-- Smooth Scroll: https://github.com/cferdinandi/smooth-scroll -*/
+    var scroll = new SmoothScroll('a[href*="#"]', {
+      speed: 500,
+      speedAsDuration: true
+    });
+  </script>
+</html>
