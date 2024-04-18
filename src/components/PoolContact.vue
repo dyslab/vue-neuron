@@ -4,11 +4,14 @@ import { ref, watch } from 'vue'
 const email = ref('')
 const email_righticon = ref('')
 const email_notice = ref('')
+const signup_message = ref('')
+const signup_loading = ref('')
+const signup_disable = ref(false)
 
 // both below expressions did work
 const email_validate_pattern = /\b[\w\.-]+@[\w\.-]+\.\w{2,}\b/
 //const email_validate_pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-watch(email, (newemail) => {
+const verifyEmailAddress = (newemail) => {
   if (newemail === '') {
     email_righticon.value = ''
     email_notice.value = ''
@@ -20,6 +23,40 @@ watch(email, (newemail) => {
       email_righticon.value = 'mdi-alert has-text-danger'
       email_notice.value = 'Email address is invalid'
     }
+  }
+}
+
+const clickToSubmit = async () => {
+  verifyEmailAddress(email.value)
+  if (email_notice.value === '') {
+    if (email.value !== '') {
+      signup_disable.value = true
+      signup_loading.value = 'is-loading'
+      await fetch(`/.netlify/functions/mailgun-sendmail?email=${email.value}`, {
+        method: 'GET'
+      }).then((response) => {
+        response.json().then((data) => {
+          if (data.status !== 200) {
+            signup_disable.value = false
+          }
+          signup_message.value = data.msg
+        })
+      }).catch((err) => {
+        signup_message.value = `Unexpected Error: ${err}`
+      })
+    } else {
+      email_notice.value = 'Please input your email address firstly'
+    }
+  }
+}
+
+watch(email, verifyEmailAddress)
+watch(signup_message, (newvalue) => {
+  if (newvalue !== '') {
+    setInterval(() => {
+      signup_loading.value = ''
+      signup_message.value = ''
+    }, 5000)
   }
 })
 </script>
@@ -45,7 +82,8 @@ watch(email, (newemail) => {
         </div>
       </div>
       <div class="field">
-        <button class="button is-link is-medium">Sign Up</button>
+        <button :class="['button', 'is-link', 'is-medium', signup_loading]" @click="clickToSubmit" :disabled="signup_disable">Sign Up</button>
+        <div class="mt-3 is-size-5 has-text-primary">{{ signup_message }}</div>
       </div>
     </div>
     <div class="column is-4 self_p">
