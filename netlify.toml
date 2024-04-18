@@ -7,6 +7,10 @@
 [[plugins]]
   package = "@netlify/plugin-emails"
 
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@netlify/emails"]
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]

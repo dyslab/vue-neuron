@@ -36,13 +36,17 @@ const clickToSubmit = async () => {
         method: 'GET'
       }).then((response) => {
         response.json().then((data) => {
-          if (data.status !== 200) {
+          if (data.status === 200) {
+            signup_message.value = `✔️ ${data.msg}`
+          } else {
             signup_disable.value = false
+            signup_message.value = `✖ ${data.msg}`
           }
-          signup_message.value = data.msg
+        }).catch((err) => {
+          signup_message.value = `❎ ${err}`
         })
       }).catch((err) => {
-        signup_message.value = `Unexpected Error: ${err}`
+        signup_message.value = `❎ ${err}`
       })
     } else {
       email_notice.value = 'Please input your email address firstly'
@@ -53,7 +57,7 @@ const clickToSubmit = async () => {
 watch(email, verifyEmailAddress)
 watch(signup_message, (newvalue) => {
   if (newvalue !== '') {
-    setInterval(() => {
+    setTimeout(() => {
       signup_loading.value = ''
       signup_message.value = ''
     }, 5000)

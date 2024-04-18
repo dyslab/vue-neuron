@@ -7,7 +7,7 @@ const handler = async (event) => {
   const mailSubject = 'Neuron Website Subscription Letter'
 
   try {
-    const email = event.queryStringParameters.email || 'example@example.com'
+    const email = event.queryStringParameters.email
     const now_iso_string = new Date().toISOString()
 
     await sendEmail({
@@ -24,23 +24,21 @@ const handler = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        // This is the mimetype for server-sent events
         "content-type": "application/json"
       },
       body: JSON.stringify({
         status: 200,
-        msg: `[${email}] Subscription Request Sent.`
+        msg: `Your subscription request sent OK!`
       })
     }
   } catch (error) {
     return {
       statusCode: 500,
       headers: {
-        // This is the mimetype for server-sent events
         "content-type": "application/json"
       },
       body: JSON.stringify({ 
-        status: 200,
+        status: 500,
         msg: error.toString()
       })
     }
