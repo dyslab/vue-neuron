@@ -40,10 +40,8 @@ const clickToSubmit = async () => {
             signup_message.value = `✔️ ${data.msg}`
           } else {
             signup_disable.value = false
-            signup_message.value = `✖ ${data.msg}`
+            signup_message.value = `✖ ${data.msg || 'Internal Error'}`
           }
-        }).catch((err) => {
-          signup_message.value = `❎ ${err}`
         })
       }).catch((err) => {
         signup_message.value = `❎ ${err}`
