@@ -32,7 +32,10 @@ const clickToSubmit = async () => {
     if (email.value !== '') {
       signup_disable.value = true
       signup_loading.value = 'is-loading'
-      await fetch(`/.netlify/functions/mailgun-sendmail?email=${email.value}`, {
+      /* Using Netlify function 'mailgun-sendmail'  */
+      // await fetch(`/.netlify/functions/mailgun-sendmail?email=${email.value}`, {
+      /* Using Netlify edge-Function 'aliyun-dm-sendmail-edge' */
+      await fetch(`/aliyun/dm/sendmail?email=${email.value}`, {
         method: 'GET'
       }).then((response) => {
         response.json().then((data) => {
@@ -55,8 +58,8 @@ const clickToSubmit = async () => {
 watch(email, verifyEmailAddress)
 watch(signup_message, (newvalue) => {
   if (newvalue !== '') {
+    signup_loading.value = ''
     setTimeout(() => {
-      signup_loading.value = ''
       signup_message.value = ''
     }, 5000)
   }

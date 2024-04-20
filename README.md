@@ -8,27 +8,19 @@ Demo website published to: [https://vue-neuron.netlify.app](https://vue-neuron.n
 
 ## Project Setup, Development & Deployment
 
+### Setup
+
 ```sh
 npm install netlify-cli -g
 
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 netlify dev
 ```
-
-### Netlify Functions & Email Integrations
-
-1. [Email Integration (Provider: Mailgun)](https://app.netlify.com/sites/vue-neuron/integrations/emails)
-
-2. [mailgun-sendmail](netlify/functions/mailgun-sendmail/)
-
-3. [aliyun-dm-sendmail](netlify/functions/aliyun-dm-sendmail/)
-
-Documentation refer to: [Netlify Function](https://docs.netlify.com/functions/overview/), [Netlify Email Integration](https://docs.netlify.com/integrations/email-integration/)
 
 ### Build for Production
 
@@ -39,6 +31,26 @@ netlify build
 ### Deploy to Netlify
 
 Automatically CI deployment with Github repository was **Enabled**.
+
+## Project Contents
+
+### Netlify Functions / Edge Functions / Email Integration Plugin
+
+#### Functions
+
+- [mailgun-sendmail](netlify/functions/mailgun-sendmail/) Send mail via Email Integration (Provider: Mailgun)
+
+- [aliyun-dm-sendmail](netlify/functions/aliyun-dm-sendmail/)
+
+#### Email Integration Plugin
+
+- [Email Integration (Provider: Mailgun)](https://app.netlify.com/sites/vue-neuron/integrations/emails)
+
+#### Edge Functions
+
+- [aliyun-dm-sendmail-edge](netlify/edge-functions/aliyun-dm-sendmail-edge.js)
+
+Netlify Docs refer to: [Function](https://docs.netlify.com/functions/overview/), [Edge Functions](https://docs.netlify.com/edge-functions/overview/), [Email Integration](https://docs.netlify.com/integrations/email-integration/)
 
 ## Appendix
 

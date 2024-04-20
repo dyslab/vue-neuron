@@ -1,8 +1,18 @@
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+/*
+  Command line: `netlify dev`
+  Entry point: http://localhost:8888/.netlify/functions/mailgun-sendmail?email=[email address] 
+
+  Command line: `netlify functions:serve`
+  Entry point: http://localhost:9999/.netlify/functions/mailgun-sendmail?email=[email address]
+
+  Mailgun Email Service Dashboard: https://app.mailgun.com/mg/dashboard
+  Netlify Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+*/
+
 const handler = async (event) => {
   const mailFrom = 'no-reply@sandbox99cba564f8184003a7c3edd41f575fb2.mailgun.org'
   const mailTo = 'dys@wwii.site'
-  const mailSubject = 'Neuron Website Subscription'
+  const mailSubject = 'Neuron Website Subscription (Mailgun Service)'
 
   try {
     const email = event.queryStringParameters.email
