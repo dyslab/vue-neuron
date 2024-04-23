@@ -14,7 +14,7 @@
     <div class="column is-3"></div>
     <div class="column is-6">
       <!-- Form Content -->
-      <form action="/" name="enquiry-form" method="POST" data-netlify="true">
+      <form name="enquiry-form" method="POST" data-netlify="true">
         <div class="field">
           <label class="label self_p1 is-medium">Name</label>
           <div class="control">
@@ -61,7 +61,7 @@
         </div>
         <div class="field has-text-centered">
           <div class="control">
-            <input type="submit" class="button is-medium is-link" />
+            <button type="submit" class="button is-medium is-link">Submit</button>
           </div>
         </div>
       </form>
