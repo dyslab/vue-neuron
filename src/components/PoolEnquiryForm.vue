@@ -14,7 +14,7 @@
     <div class="column is-3"></div>
     <div class="column is-6">
       <!-- Form Content -->
-      <form name="enquiry-form" method="POST" data-netlify="true">
+      <form name="contact" netlify>
         <div class="field">
           <label class="label self_p1 is-medium">Name</label>
           <div class="control">
