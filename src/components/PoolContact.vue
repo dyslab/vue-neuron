@@ -111,6 +111,11 @@ watch(signup_message, (newvalue) => {
           <span class="mdi mdi-twitter has-text-warning">&nbsp;@twitter</span>
         </div>
       </div>
+      <div class="block is-size-5 self_p1">
+        <span>
+          Click <a href="enquiry.html">Survey Form</a> for more information...
+        </span>
+      </div>
     </div>
     <div class="column is-1"></div>
   </div>
