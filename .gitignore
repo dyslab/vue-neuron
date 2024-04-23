@@ -31,6 +31,3 @@ coverage
 
 # Local Netlify folder
 .netlify
-
-# Including specific Netlify function folders
-!netlify/functions/aliyun-dm-sendmail/node_modules
