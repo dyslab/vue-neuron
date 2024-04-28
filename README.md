@@ -28,9 +28,9 @@ netlify dev
 netlify build
 ```
 
-### Deploy to Netlify
+### Deploy to Netlify (after `netlify build`)
 
-Automatically CI deployment with Github repository was **Stopped** (See document ["Stop or activate builds"](https://docs.netlify.com/configure-builds/stop-or-activate-builds/)). Manually deployment by the netlify-cli command lines below.
+Automatically CI deployment with Github repository is **Stopped** (See document ["Stop or activate builds"](https://docs.netlify.com/configure-builds/stop-or-activate-builds/)). Manually deployment by the netlify-cli command lines below.
 
 ```bash
 # Deploy to Netlify as draft
@@ -46,7 +46,7 @@ netlify deploy --prod
 
 #### Netlify Functions
 
-- [mailgun-sendmail](netlify/functions/mailgun-sendmail/) Send mail via [Netlify Email Integration Plugin](#netlify-email-integration-plugin) (Mail Service Provider: [Mailgun](https://app.mailgun.com/mg/dashboard)
+- [mailgun-sendmail](netlify/functions/mailgun-sendmail/) Send mail via [Netlify Email Integration Plugin](#netlify-email-integration-plugin) (Mail Service Provider: [Mailgun](https://app.mailgun.com/mg/dashboard))
 
 - [aliyun-dm-sendmail](netlify/functions/aliyun-dm-sendmail/) Send mail via [Aliyun Direct Mail Service](https://dm.console.aliyun.com/#/directmail/Home/)
 
