@@ -1,0 +1,65 @@
+<!--
+  Content refer to: https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/
+  Codebase refer to: https://github.com/taniarascia/sandbox/tree/master/ghibli
+-->
+<!DOCTYPE html>
+<html lang="en" class="has-background-light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Sample Form</title>
+  </head>
+  <body>
+    <div class="columns p-5">
+      <div class="column is-auto">
+        <!-- Form Content -->
+        <form name="contact" netlify>
+          <div class="field">
+            <label class="label is-medium">Name</label>
+            <div class="control">
+              <input class="input is-medium" type="text" name="name" placeholder="Your real name">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-medium">Contact Email / Telephone Number / Social Media Link</label>
+            <div class="control">
+              <input class="input is-medium" type="text" name="contact" placeholder="Help us to keep contact with you">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-medium">Hobby</label>
+            <div class="control">
+              <div class="select is-medium">
+                <select name="hobby[]">
+                  <option>Mobile Phone Games</option>
+                  <option>Computer Games</option>
+                  <option>Webpage Games</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-medium">Message</label>
+            <div class="control">
+              <textarea class="textarea is-medium" name="message" placeholder="Your message and request"></textarea>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="checkbox is-medium">
+                <input type="checkbox" name="send-data-ok" checked>
+                I agree to send above data
+              </label>
+            </div>
+          </div>
+          <div class="field has-text-centered">
+            <div class="control">
+              <button type="submit" class="button is-medium is-link">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

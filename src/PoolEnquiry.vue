@@ -7,7 +7,7 @@ import PoolEnquiryForm from './components/PoolEnquiryForm.vue';
 <template>
   <div class="pool_bg_color_1">
     <PoolHeader />
-    <PoolEnquiryForm />
+    <PoolEnquiryForm iframeUrl="enquiry-form/sample.html" />
     <PoolFooter />
   </div>
 </template>

@@ -30,27 +30,41 @@ netlify build
 
 ### Deploy to Netlify
 
-Automatically CI deployment with Github repository was **Enabled**.
+Automatically CI deployment with Github repository was **Stopped** (See document ["Stop or activate builds"](https://docs.netlify.com/configure-builds/stop-or-activate-builds/)). Manually deployment by the netlify-cli command lines below.
+
+```bash
+# Deploy to Netlify as draft
+netlify deploy
+
+# Deploy to Netlify as production
+netlify deploy --prod
+```
 
 ## Project Contents
 
-### Netlify Functions / Edge Functions / Email Integration Plugin
+### Mail Notification by Netlify Functions / Edge Functions / Email Integration Plugin / Form
 
-#### Functions
+#### Netlify Functions
 
-- [mailgun-sendmail](netlify/functions/mailgun-sendmail/) Send mail via Email Integration (Provider: Mailgun)
+- [mailgun-sendmail](netlify/functions/mailgun-sendmail/) Send mail via [Netlify Email Integration Plugin](#netlify-email-integration-plugin) (Mail Service Provider: [Mailgun](https://app.mailgun.com/mg/dashboard)
 
-- [aliyun-dm-sendmail](netlify/functions/aliyun-dm-sendmail/)
+- [aliyun-dm-sendmail](netlify/functions/aliyun-dm-sendmail/) Send mail via [Aliyun Direct Mail Service](https://dm.console.aliyun.com/#/directmail/Home/)
 
-#### Email Integration Plugin
+> **Deployment Notes**: Compressing whole directory and files of *netlify/functions/aliyun-dm-sendmail/* recursively to a **ZIP** archive file. Then manually deploy to Netlify server by command line `netlify deploy --prod`.
 
-- [Email Integration (Provider: Mailgun)](https://app.netlify.com/sites/vue-neuron/integrations/emails)
+#### Netlify Email Integration Plugin
 
-#### Edge Functions
+- [Email Integration Configuration (Mail Service Provider: Mailgun)](https://app.netlify.com/sites/vue-neuron/integrations/emails), See Document [Email Integration](https://docs.netlify.com/integrations/email-integration/)
+
+#### Netlify Edge Functions
 
 - [aliyun-dm-sendmail-edge](netlify/edge-functions/aliyun-dm-sendmail-edge.js)
 
 Netlify Docs refer to: [Function](https://docs.netlify.com/functions/overview/), [Edge Functions](https://docs.netlify.com/edge-functions/overview/), [Email Integration](https://docs.netlify.com/integrations/email-integration/)
+
+#### Netlify Form
+
+- HTML form page in iframe window: [public/enquiry-form/sample.html](public/enquiry-form/sample.html) showed in [PoolEnquiry.vue](src/PoolEnquiry.vue)
 
 ## Appendix
 

@@ -1,83 +1,34 @@
 <script setup>
+defineProps({
+  iframeUrl: {
+    type: String,
+    default: 'enquiry-form/sample.html',
+    require: true
+  }
+})
 </script>
 
 <template>
-  <div class="columns self_height"></div>
   <div class="columns p-5">
-    <div class="column is-3"></div>
-    <div class="column is-6 is-size-2 has-text-centered self_p">
+    <div class="column is-2"></div>
+    <div class="column is-8 is-size-2 has-text-centered has-text-primary">
       Survey Form
     </div>
-    <div class="column is-3"></div>
+    <div class="column is-2"></div>
   </div>
-  <div id="enquiry" class="columns p-5">
-    <div class="column is-3"></div>
-    <div class="column is-6">
-      <!-- Form Content -->
-      <form name="contact" netlify>
-        <div class="field">
-          <label class="label self_p1 is-medium">Name</label>
-          <div class="control">
-            <input class="input is-medium" type="text" name="name" placeholder="Your real name">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label self_p1 is-medium">Nickname</label>
-          <div class="control">
-            <input class="input is-medium" type="text" name="nickname" placeholder="Your nickname">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label self_p1 is-medium">Contact Email / Telephone Number / Social Media Link</label>
-          <div class="control">
-            <input class="input is-medium" type="text" name="contact" placeholder="Help us to keep contact with you">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label is-medium self_p1">Hobby</label>
-          <div class="control">
-            <div class="select is-medium">
-              <select name="hobby[]">
-                <option>Mobile Phone Games</option>
-                <option>Computer Games</option>
-                <option>Webpage Games</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label class="label self_p1 is-medium">Message</label>
-          <div class="control">
-            <textarea class="textarea is-medium" name="message" placeholder="Your message and request"></textarea>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <label class="checkbox self_p1 is-medium">
-              <input type="checkbox" name="send-data-ok" checked>
-              I agree to send above data
-            </label>
-          </div>
-        </div>
-        <div class="field has-text-centered">
-          <div class="control">
-            <button type="submit" class="button is-medium is-link">Submit</button>
-          </div>
-        </div>
-      </form>
+  <div id="enquiry" class="columns">
+    <div class="column is-2"></div>
+    <div class="column is-8">
+      <!-- iframe window -->
+      <iframe :src="$props.iframeUrl"
+        scrolling="no"
+        frameBorder="0"
+        style="width: 100%; height: 800px; border: 0px; overflow: hidden; margin: 0; padding: 0" 
+        allow="clipboard-read; clipboard-write" />
     </div>
-    <div class="column is-3"></div>
+    <div class="column is-2"></div>
   </div>
 </template>
 
 <style scoped>
-.self_height{
-  height: 15vh;
-}
-.self_p {
-  color: white;
-}
-.self_p1 {
-  color: #e0e0e0;
-}
 </style>
